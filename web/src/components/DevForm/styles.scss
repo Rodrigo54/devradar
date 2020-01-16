@@ -1,5 +1,5 @@
 aside {
-  width: 320px;
+  width: 360px;
   background: #FFF;
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
   border-radius: 2px;
@@ -36,9 +36,13 @@ aside {
       margin-top: 20px;
       display: grid;
       gap: 20px;
+      grid-template-rows: 1fr;
       grid-template-columns: 1fr 1fr;
       > .input-block {
         margin-top: 0;
+      }
+      @media (max-width: 1000px) {
+        grid-template-columns: 1fr;
       }
     }
 
