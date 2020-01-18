@@ -1,23 +1,21 @@
 import axios from 'axios';
 
-<<<<<<< HEAD
-
 export interface Dev {
-  _id: any;
+  _id: string;
   name: string,
   github_username: string,
   bio: string,
   avatar_url: string,
   techs: string[],
   location: {
-    coordinates: [number, number]
+    coordinates: [number, number] // [longitude, latitude]
+    type: string;
+    _id: string;
   }
 }
 
-=======
->>>>>>> 385909efd293556797b8f3a5105c5b5e756d8502
 const api = axios.create({
-  baseURL: 'http://localhost:3333'
+  baseURL: 'http://192.168.2.3:3333'
 })
 
 export default api;

@@ -3,6 +3,11 @@ li.dev-item {
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
   border-radius: 2px;
   padding: 20px;
+<<<<<<< HEAD
+=======
+  display: flex;
+  flex-flow: column nowrap;
+>>>>>>> 385909efd293556797b8f3a5105c5b5e756d8502
   header {
     display: flex;
     flex-direction: row;
@@ -32,12 +37,34 @@ li.dev-item {
     line-height: 20px;
     margin: 10px 0;
   }
+<<<<<<< HEAD
   a {
     color: #8e4dff;
     font-size: 14px;
     text-decoration: none;
     &:hover {
       color: #5a2ea6;
+=======
+  .actions{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-top: auto;
+    a, button {
+      color: #8e4dff;
+      font-size: 14px;
+      text-decoration: none;
+      border: 0px;
+      background: none;
+      padding: 0px 5px;
+      cursor: pointer;
+      &:hover {
+        color: #5a2ea6;
+      }
+    }
+    a{
+      margin-right: auto;
+>>>>>>> 385909efd293556797b8f3a5105c5b5e756d8502
     }
   }
 }
