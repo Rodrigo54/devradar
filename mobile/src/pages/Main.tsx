@@ -6,6 +6,7 @@ import { NavigationStackProp } from 'react-navigation-stack';
 import { MaterialIcons } from '@expo/vector-icons';
 
 import api, { Dev } from '../services/api';
+import * as socket from '../services/socket';
 
 type Props = {
   navigation: NavigationStackProp;
@@ -19,6 +20,16 @@ const Main: React.FC<Props> = ({ navigation }) => {
   useEffect(() => {
     loadPosition();
   }, []);
+  useEffect(() => {
+    socket.subscribeNewDevs(dev => setDevs([ ...devs, dev ]));
+  }, [devs]);
+
+  function setupWebsocket() {
+    socket.disconnect();
+    const { latitude, longitude } = currentRegion;
+    socket.connect({ latitude, longitude, techs });
+
+  }
 
   async function loadDevs() {
     const { latitude, longitude } = currentRegion;
@@ -30,6 +41,7 @@ const Main: React.FC<Props> = ({ navigation }) => {
       }
     });
     setDevs(response.data);
+    setupWebsocket();
   }
 
   async function loadPosition() {

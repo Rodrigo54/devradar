@@ -3,7 +3,6 @@ import parseStringAsArray from '../utils/parseStringAsArray';
 import { Request, Response } from 'express';
 
 export async function index(request: Request, response: Response) {
-  console.log(request.query);
   const { techs, latitude, longitude } = request.query;
 
   const techsArray = parseStringAsArray(techs);

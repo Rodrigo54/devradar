@@ -2,6 +2,7 @@ import axios from 'axios';
 import DevSchema from '../models/Dev';
 import parseStringAsArray from '../utils/parseStringAsArray';
 import { Request, Response } from 'express';
+import { findConnections, sedMessage } from '../websocket';
 
 export async function index(request: Request, response: Response) {
   const devs = await DevSchema.find();
@@ -31,7 +32,13 @@ export async function store(request: Request, response: Response) {
       techs: techsArray,
       location
     });
+
+    const sendMessageTo = findConnections({ latitude, longitude }, techs);
+    sedMessage(sendMessageTo, 'new-dev', dev);
+
   }
+
+
 
   return response.json(dev);
 }
