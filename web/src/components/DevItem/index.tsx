@@ -1,14 +1,5 @@
 import React from "react";
 import "./styles.scss";
-<<<<<<< HEAD
-import { Dev } from "../../services/api";
-
-type DevItemProps = {
-  dev: Dev;
-};
-
-const DevItem: React.FC<DevItemProps> = ({ dev }) => {
-=======
 import { Dev, DevEtitly } from "../../services/dev";
 
 type DevItemProps = {
@@ -32,7 +23,6 @@ const DevItem: React.FC<DevItemProps> = ({ dev, onDelete }) => {
     }
   }
 
->>>>>>> 385909efd293556797b8f3a5105c5b5e756d8502
   return (
     <li className="dev-item">
       <header>
@@ -43,15 +33,11 @@ const DevItem: React.FC<DevItemProps> = ({ dev, onDelete }) => {
         </div>
       </header>
       <p>{dev.bio}</p>
-<<<<<<< HEAD
-      <a href={`https://github.com/${dev.github_username}`} target="_blank" rel="noopener noreferrer">Acessar Perfil no Github</a>
-=======
       <div className="actions">
         <a href={`https://github.com/${dev.github_username}`} target="_blank" rel="noopener noreferrer">Acessar Perfil no Github</a>
         <button onClick={handleEdit}>Editar</button>
         <button onClick={handleDelete}>Deletar</button>
       </div>
->>>>>>> 385909efd293556797b8f3a5105c5b5e756d8502
     </li>
   );
 };

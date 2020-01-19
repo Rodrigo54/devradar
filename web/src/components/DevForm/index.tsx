@@ -1,15 +1,9 @@
 import React, { useState, useEffect, FormEvent } from "react";
 import "./styles.scss";
-<<<<<<< HEAD
-
-type DevFormProps = {
-  onSubmit: (dev: any) => Promise<any>;
-=======
 import { DevEtitly } from "../../services/dev";
 
 type DevFormProps = {
   onSubmit: () => Promise<void>;
->>>>>>> 385909efd293556797b8f3a5105c5b5e756d8502
 };
 
 const DevForm: React.FC<DevFormProps> = ({ onSubmit }) => {
@@ -17,10 +11,6 @@ const DevForm: React.FC<DevFormProps> = ({ onSubmit }) => {
   const [techs, setTechs] = useState("");
   const [latitude, setLatitude] = useState<any>("");
   const [longitude, setLongitude] = useState<any>("");
-<<<<<<< HEAD
-
-  useEffect(() => {
-=======
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
@@ -39,7 +29,6 @@ const DevForm: React.FC<DevFormProps> = ({ onSubmit }) => {
   }, []);
 
   function setLocation() {
->>>>>>> 385909efd293556797b8f3a5105c5b5e756d8502
     navigator.geolocation.getCurrentPosition(
       position => {
         const { latitude, longitude } = position.coords;
@@ -51,30 +40,18 @@ const DevForm: React.FC<DevFormProps> = ({ onSubmit }) => {
       },
       { timeout: 30000 }
     );
-<<<<<<< HEAD
-  });
-=======
   }
->>>>>>> 385909efd293556797b8f3a5105c5b5e756d8502
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-<<<<<<< HEAD
-    await onSubmit({
-=======
     const dev = new DevEtitly({
->>>>>>> 385909efd293556797b8f3a5105c5b5e756d8502
       github_username,
       techs,
       latitude,
       longitude
     });
 
-<<<<<<< HEAD
-    setGithubUsername("");
-    setTechs("");
-=======
     if (edit) {
       await dev.update();
     } else {
@@ -86,7 +63,6 @@ const DevForm: React.FC<DevFormProps> = ({ onSubmit }) => {
     setLocation();
     DevEtitly.next();
     await onSubmit();
->>>>>>> 385909efd293556797b8f3a5105c5b5e756d8502
   }
 
   return (
